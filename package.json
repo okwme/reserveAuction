@@ -1,0 +1,47 @@
+{
+  "name": "reserve-auction-contracts",
+  "version": "1.0.0",
+  "description": "Reserve Auction Smart Contracts",
+  "scripts": {
+    "compile": "npx truffle compile",
+    "migrate": "npx truffle migrate",
+    "test": "npx truffle test test/*.test.js",
+    "deploy": "npx truffle migrate --to 2",
+    "upgradeMetadata": "npx truffle migrate --compile-all --f 3 --to 3",
+    "upgradeController": "npx truffle migrate --compile-all --f 4 --to 4",
+    "lint": "npx solium --dir contracts/",
+    "lint:watch": "npx solium --watch --dir contracts/",
+    "lint:fix": "npx solium  --dir contracts/ --fix",
+    "networks-extract": "node extract_network_info.js",
+    "networks-inject": "node inject_network_info.js",
+    "networks-reset": "mkdir -p build/contracts && npx truffle networks --clean && npm run networks-inject",
+    "flatten": "./flatten.sh"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "@gnosis.pm/util-contracts": "^3.0.1",
+    "@poanet/solidity-flattener": "^3.0.6",
+    "bignumber.js": "^8.0.1",
+    "dotenv": "^5.0.1",
+    "openzeppelin-solidity": "2.1.3",
+    "solium": "^1.1.7",
+    "truffle": "^5.0.9",
+    "truffle-flattener": "^1.5.0",
+    "truffle-hdwallet-provider": "^1.0.0-web3one.3"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/okwme/reserveAuction.git"
+  },
+  "keywords": [
+    "truffle",
+    "ethereum",
+    "web3"
+  ],
+  "author": "Billy Rennekamp <billy.rennekamp@gmail.com>",
+  "license": "ISC"
+}
